@@ -19,6 +19,12 @@ import SettingsScreen from '../screens/Settings';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
+import Instructions from '../screens/Tennakoon/Instructions';
+import CountrySelect from '../screens/Tennakoon/CountrySelect';
+import FormParent from '../screens/Tennakoon/FormParent';
+import Barchart from '../screens/Tennakoon/Barchart';
+import Finetune from '../screens/Tennakoon/Finetune';
+import UpdateForm from '../screens/Tennakoon/UpdateForm';
 
 const { width } = Dimensions.get('screen');
 
@@ -246,6 +252,12 @@ export default function OnboardingStack(props) {
         }}
       />
       <Stack.Screen name="App" component={AppStack} />
+      <Stack.Screen name="Footprint" component={CountrySelect} />
+      <Stack.Screen name="Instructions" component={Instructions} />
+      <Stack.Screen name="CalculatorForm" component={FormParent} />
+      <Stack.Screen name="Barchart" component={Barchart} />
+      <Stack.Screen name="Finetune" component={Finetune} />
+      <Stack.Screen name="UpdateForm" component={UpdateForm} />
     </Stack.Navigator>
   );
 }
