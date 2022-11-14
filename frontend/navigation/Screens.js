@@ -3,7 +3,7 @@ import { Animated, Dimensions, Easing } from 'react-native';
 import { Header, Icon } from '../components';
 import { nowTheme, tabs } from '../constants';
 
-import Articles from '../screens/Articles';
+import Articles from '../screens/Prabuddhi/Articles';
 import { Block } from 'galio-framework';
 import Components from '../screens/Components';
 // drawer
@@ -19,6 +19,8 @@ import SettingsScreen from '../screens/Settings';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
+import { ArticleStack } from './Prabuddhi/ArticleNavigation';
+import { AdminNavStack } from './Prabuddhi/AdminNav';
 
 const { width } = Dimensions.get('screen');
 
@@ -71,6 +73,31 @@ function ArticlesStack(props) {
   );
 }
 
+// function AdminNavStack(props) {
+//   return (
+//     <Stack.Navigator
+//       initialRouteName="AdminArticles"
+//       screenOptions={{
+//         mode: 'card',
+//         headerShown: 'screen',
+//       }}
+//     >
+//       <Stack.Screen
+//         name="AdminArticles"
+//         component={AdminArticles}
+//         options={{
+//           header: ({ navigation, scene }) => (
+//             <Header title="AdminArticles" navigation={navigation} scene={scene} />
+//           ),
+//           backgroundColor: '#FFFFFF',
+//         }}
+//       />
+//     </Stack.Navigator>
+//   );
+// }
+
+
+
 function AccountStack(props) {
   return (
     <Stack.Navigator
@@ -105,7 +132,7 @@ function ProfileStack(props) {
     >
       <Stack.Screen
         name="Profile"
-        component={Profile}
+        component={Articles}
         options={{
           header: ({ navigation, scene }) => (
             <Header transparent white title="Profile" navigation={navigation} scene={scene} />
@@ -205,16 +232,18 @@ function AppStack(props) {
           headerShown: false,
         }}
       />
-      <Drawer.Screen
+
+        <Drawer.Screen
         name="Articles"
-        component={ArticlesStack}
+        component={ArticleStack}
         options={{
           headerShown: false,
         }}
       />
+
       <Drawer.Screen
-        name="Profile"
-        component={ProfileStack}
+        name="Admin Articles"
+        component={AdminNavStack}
         options={{
           headerShown: false,
         }}

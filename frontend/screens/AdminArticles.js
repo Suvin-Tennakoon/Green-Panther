@@ -3,10 +3,11 @@ import { ScrollView, StyleSheet } from 'react-native';
 //galio
 import { Block, Text, theme } from 'galio-framework';
 
-import { articles, nowTheme } from '../constants/';
+import {nowTheme } from '../constants/'; 
+import {articles } from '../constants/Prabuddhi/articles'; 
 import { Card } from '../components/';
 
-class Articles extends React.Component {
+class AdminArticles extends React.Component {
   renderCards = () => {
     return (
       <Block style={styles.container}>
@@ -14,12 +15,11 @@ class Articles extends React.Component {
         Cards
       </Text>
         <Card item={articles[0]} horizontal />
-        <Block flex row>
-          <Card item={articles[1]} style={{ marginRight: theme.SIZES.BASE }} />
-          <Card item={articles[2]} />
-        </Block>
+        <Card item={articles[1]} horizontal />
+        <Card item={articles[2]} horizontal />
         <Card item={articles[3]} horizontal />
-        <Card item={articles[4]} full />
+        <Card item={articles[4]} horizontal />
+        <Card item={articles[5]} horizontal />
       </Block>
     );
   };
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Articles;
+export default AdminArticles;
